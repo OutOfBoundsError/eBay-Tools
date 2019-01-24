@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Essential Tools V.1.0.0 By Lucky-Charms</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-light" style="background-color: #0E0731;-webkit-app-region: drag;">
+            <div>
+                <label class="header-title">eBay Tools</label>
+                <button class="navButtons" id="settingsButton">Settings</button>
+                <!-- <button class="navButtons" id="testButton">Test</button> -->
+            </div>
+
+            <div class="windowButton">
+                <button class="windowButton" id='minButton'>__</button>
+                <button class="windowButton" id='exitButton'>X</button>
+            </div>
+            <!-- <div class="navButtons">
+                <button type="button" class="btn btn-outline-light" name="ebayWatch" id="watch">eBay Watchers</button>
+                <button type="button" class="btn btn-outline-light" name="ebayView" id="view">eBay Views</button>
+                <button type="button" class="btn btn-outline-light" name="ebayAccount" id="account">eBay Account Generator</button>
+            </div> -->
+        </nav>
+
+        <div class="container">
+            <form class="form-watch">
+                <label class="form-header">eBay Watcher Generator</label>
+                <div class="form-group row">
+                    <label for="inputLink" class="col-sm-2 col-form-label">eBay Link</label>
+                    <div class="col-sm-10">
+                      <input type="url" class="form-control" id="ebayWatchLink" placeholder="eBay Product Link">
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <label for="amtWatchers" class="col-sm-2 col-form-label">Amount of Watchers</label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" id="amtWatchers" placeholder="0-10">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2">
+                      <button type="submit" class="btn btn-primary">Send Watchers</button>
+                      <label class="form-status" id="watch-status"></label>
+                    </div>
+                    
+                </div>
+            </form>
+
+            <form class="form-view">
+                <label class="form-header">eBay View Generator</label>
+                <div class="form-group row">
+                    <label for="inputLink" class="col-sm-2 col-form-label">eBay Link</label>
+                    <div class="col-sm-10">
+                        <input type="url" class="form-control" id="ebayViewLink" placeholder="eBay Product Link">
+                    </div>
+                </div>
+        
+                <div class="form-group row">       
+                    <label for="amtViews" class="col-sm-2 col-form-label">Amount of Viewers</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="amtViews" placeholder="0-100">
+                    </div>
+                </div>
+        
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary">Send Viewers</button>
+                        <label class="form-status" id="view-status"></label>
+                     </div>
+                </div>
+            </form>
+
+            <form class="form-account">
+                <label class="form-header">eBay Account Generator</label>
+                <div class="form-group row">
+                    <label for="inputLink" class="col-sm-2 col-form-labeDl">Catch-all Domain</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="catchDomain" placeholder="Catch-all Domain">
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="ebayPassword" placeholder="Password">
+                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="amtAccount" class="col-sm-2 col-form-label">Amount of Account</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="amtAccs" placeholder="0-7">
+                    </div>
+                </div>
+        
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary">Generate</button>
+                        <label class="form-status" id="account-status"></label>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <script src="ebay.js"></script>
+        <script>
+            const { remote, ipcRenderer } = electron;
+
+            const min = document.querySelector('#minButton');
+            const exit = document.querySelector('#exitButton');
+            const settingButton = document.querySelector('#settingsButton');
+            // const testBtn = document.querySelector('#testButton');
+
+            min.addEventListener('click', function(){
+                remote.getCurrentWindow().minimize();
+            })
+
+            exit.addEventListener('click', function(){
+                remote.getCurrentWindow().close();
+            })
+
+            settingButton.addEventListener('click', function(){
+                ipcRenderer.send('settings:open');
+            })
+
+            window.addEventListener('load', function(){
+                const catchAllField = document.querySelector('#catchDomain');
+                const password = document.querySelector('#ebayPassword');
+                var accSettings = settings.get('accountSettings');
+                catchAllField.value = accSettings.domain;
+                password.value = accSettings.password;
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+body{
+    background-color: #0E0731;
+}
+
+.container{
+    padding: 30px;
+    color: white;
+    background-color: #140D43;
+    border-radius: 2%;
+    margin-top: 20px;
+}
+
+.form-header{
+    font-size: 30px;
+    border-bottom: 2px solid yellow;
+    margin: 0px 0px 30px 0px;
+}
+
+.header-title{
+    font-size: 30px;
+    font-family: sans-serif;
+    color: red;
+
+}
+
+.navButtons{
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    font-size: 30px;
+    -webkit-app-region: no-drag;
+    border-bottom: 2px solid white;
+    margin-left: 50px;
+}
+
+.windowButton{
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    font-size: 30px;
+    -webkit-app-region: no-drag;
+}
+
+.output-label{
+    background: red;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10%;
+}
+
+.input-label{
+    background: blue;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10%;
+    margin-left: 500px;
+}
+
+.form-status{
+    margin-left: 20px;
+    color: yellow;
+    padding: 5px;
+}
+
+#accounts-loaded{
+    font-size: 15px;
+    color: white;
+    margin-left: 250px;
+}
+
+
+

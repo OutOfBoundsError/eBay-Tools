@@ -19,6 +19,6 @@ Program that can generate views, watches, and ebay accounts for a specific produ
 - Create a public database for people withouta catch-all to use.
 - Allow users to share accounts created to the database.
 
-# Current Issue
+# Current Issues
 - Saving settings sometimes causes ':undefined' accounts.
 - Installer and program is way too big (600+ MB).

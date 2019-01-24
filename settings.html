@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Essential Tools V.1.0.0 By Lucky-Charms</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-light" style="background-color: #0E0731;-webkit-app-region: drag;">
+            <div>
+                <label class="header-title">eBay Tools</label>
+            </div>
+
+            <div class="windowButton">
+                <button class="windowButton" id='minButton'>__</button>
+                <button class="windowButton" id='exitButton'>X</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <form class="settings-form">
+                <div>
+                    <label class="form-header">eBay Tools Settings</label>
+                    <label class="form-header-content" id="accounts-loaded"></label>
+                </div>
+                
+                <div class="form-group row">
+                    <label for="accounts-text" class="col-sm-2 col-form-label">Accounts Text</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" id="accounts-text" placeholder="username:password" rows="20"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="catch-all" class="col-sm-2 col-form-label">Catch-all Domain</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="catch-all" placeholder="Catch-All Domain" rows="20"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="password" class="col-sm-2 col-form-label">Accounts password</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="password" placeholder="Password" rows="20"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2">
+                      <button type="submit" class="btn btn-primary" id="save-btn">Save</button>
+                      <label class="form-status" id="save-status"></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            const { remote } = require('electron');
+            const min = document.querySelector('#minButton');
+            const exit = document.querySelector('#exitButton');
+
+            min.addEventListener('click', function(){
+                remote.getCurrentWindow().minimize();
+            })
+
+            exit.addEventListener('click', function(){
+                remote.getCurrentWindow().close();
+            })
+            
+        </script>
+        <script src="savesettings.js"></script>
+    </body>
+</html>

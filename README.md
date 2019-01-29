@@ -19,8 +19,9 @@ Program that can generate views, watches, and ebay accounts for a specific produ
 
 
 # Want To Do
-- Create a public database for people withouta catch-all to use.
+- Create a public database for people without a catch-all to use.
 - Allow users to share accounts created to the database.
+- Make Watching Request Based to increase time efficiency.
 
 # Current Issues
 - Saving settings sometimes causes ':undefined' accounts.

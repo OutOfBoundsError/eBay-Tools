@@ -25,4 +25,4 @@ Program that can generate views, watches, and ebay accounts for a specific produ
 
 # Current Issues
 - Saving settings sometimes causes ':undefined' accounts.
-- Installer and program is way too big (600+ MB).
+- Installer and program is too big (600+ MB).
